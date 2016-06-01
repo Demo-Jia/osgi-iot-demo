@@ -10,6 +10,8 @@
     <module>api</module>
     <module>client</module>
     <module>impl1</module>
+    <module>impl2</module>
+    <module>impl3</module>
   </modules>
 
   <build>

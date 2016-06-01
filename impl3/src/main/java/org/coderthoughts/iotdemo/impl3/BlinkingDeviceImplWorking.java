@@ -1,4 +1,4 @@
-package org.coderthoughts.iotdemo.impl1;
+package org.coderthoughts.iotdemo.impl3;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import org.osgi.service.component.annotations.ConfigurationPolicy;
 
 @Component(configurationPid="org.coderthoughts.iotdemo.DeviceConfig",
     configurationPolicy=ConfigurationPolicy.REQUIRE)
-public class BlinkingDeviceImplBroken implements BlinkingDevice {
+public class BlinkingDeviceImplWorking implements BlinkingDevice {
     private Config config;
 
     @Activate
@@ -22,13 +22,13 @@ public class BlinkingDeviceImplBroken implements BlinkingDevice {
 
     @Override
     public Map<String, String> blinkGreenLight() {
-        callDevice("http://" + config.ip_address() + "/gpio/3/hi");
+        callDevice("http://" + config.ip_address() + "/gpio/2/hi");
         try { Thread.sleep(config.on_duration()); } catch (Exception ex) {}
-        callDevice("http://" + config.ip_address() + "/gpio/3/lo");
+        callDevice("http://" + config.ip_address() + "/gpio/2/lo");
 
         Map<String, String> m = new HashMap<>();
         m.put("IP", config.ip_address());
-        m.put("IO", "3");
+        m.put("IO", "2");
         return m;
     }
 

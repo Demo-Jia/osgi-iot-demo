@@ -8,13 +8,13 @@ import org.osgi.service.component.annotations.Reference;
 
 @Component(immediate=true,
     service=BlinkingDeviceClient.class,
-    property={"osgi.command.function=blink",
-        "osgi.command.scope=device"})
+    property={"osgi.command.function=green",
+        "osgi.command.scope=blink"})
 public class BlinkingDeviceClient {
     @Reference
     private BlinkingDevice blinkDevice;
 
-    public void blink() {
+    public void green() {
         Map<String, String> res = blinkDevice.blinkGreenLight();
         System.out.println("Invoked device: " + res);
     }
