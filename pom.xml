@@ -12,6 +12,7 @@
     <module>impl1</module>
     <module>impl2</module>
     <module>impl3</module>
+    <module>ref-client</module>
   </modules>
 
   <build>

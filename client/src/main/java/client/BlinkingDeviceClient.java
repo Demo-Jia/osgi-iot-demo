@@ -16,6 +16,11 @@ public class BlinkingDeviceClient implements Runnable {
     @Activate
     public void activate() {
         new Thread(this).start();
+        try {
+            blinkDevice.foo();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Deactivate
